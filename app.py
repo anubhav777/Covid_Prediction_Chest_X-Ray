@@ -31,11 +31,11 @@ model.compile(optimizer='adam', loss='binary_crossentropy',
 train_datagen = image.ImageDataGenerator(
     rescale=1/255, horizontal_flip=True, zoom_range=0.2, shear_range=0.2)
 train_data = train_datagen.flow_from_directory(
-    './train', target_size=(256, 256), batch_size=32, class_mode='binary')
+    './train', target_size=(244, 244), batch_size=32, class_mode='binary')
 
 test_datagen = image.ImageDataGenerator(rescale=1/255)
 test_data = test_datagen.flow_from_directory(
-    './test', target_size=(256, 256), batch_size=32, class_mode='binary')
+    './test', target_size=(244, 244), batch_size=32, class_mode='binary')
 
 model.fit_generator(train_data, validation_data=test_data, epochs=25)
 
